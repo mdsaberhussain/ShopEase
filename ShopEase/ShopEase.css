@@ -1,0 +1,398 @@
+:root {
+    --bg-main: #07090f;
+    --bg-card: #121622;
+    --primary: #ff007f;
+    --secondary: #00f0ff;
+    --accent: #7000ff;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* ---------------- NAVBAR ---------------- */
+#navbar {
+    position: sticky;
+    top: 0;
+    padding: 15px 20px;
+    background: rgba(7,9,15,0.6);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* LOGO */
+#logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #00f0ff, #ff007f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* SEARCH */
+.search-box {
+    flex: 1;
+    max-width: 650px;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+.search-box button {
+    padding: 12px 20px;
+    border: none;
+    background: linear-gradient(135deg, #00f0ff, #7000ff);
+    color: white;
+    cursor: pointer;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+}
+
+/* ---------------- HERO ---------------- */
+#hero {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 120px 20px;
+    text-align: center;
+    border-radius: 30px;
+    background: linear-gradient(-45deg, #ff007f, #7000ff, #00f0ff, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    flex: 1;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 15px;
+}
+
+#hero p {
+    color: #e5e7eb;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn-primary {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+}
+
+/* ---------------- PRODUCTS ---------------- */
+#content {
+    max-width: 1300px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    flex: 1;
+}
+
+.contentbox {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s;
+    max-width: 340px; /* optional: controls overall card width */
+    margin: auto;
+    transform: none;
+}
+
+.contentbox:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,240,255,0.2);
+}
+
+.image-wrapper {
+    height: 300px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.contentbox:hover img {
+    transform: scale(1.1);
+}
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* gives space to push button down */
+}
+
+.price {
+    font-size: 1rem;
+    color: var(--secondary);
+    margin-bottom: 12px;
+}
+
+/* TITLE */
+.card-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+/* BUTTON */
+.btn-secondary {
+    margin-top: auto;    
+    font-size: 0.9rem;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #ff007f, #7000ff);
+    box-shadow: 0 0 15px rgba(0,240,255,0.5);
+}
+
+/* ---------------- CONTACT ---------------- */
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.contact-page h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+
+/* TABLE */
+.order-table {
+    width: 95%;
+    max-width: 1100px;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.order-table th,
+.order-table td {
+    padding: 18px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 900px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    #hero {
+        padding: 80px 15px;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ---------------- FIXED RESPONSIVE (Added later)---------------- */
+
+/* Keep layout similar but scale it down */
+@media (max-width: 900px) {
+
+    body {
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
+
+    .nav-container {
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    #logo {
+        font-size: 1.4rem;
+    }
+
+    .search-box {
+        max-width: 300px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    #hero {
+        padding: 80px 20px;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small phones */
+@media (max-width: 600px) {
+
+    body {
+        transform: scale(0.9);
+    }
+
+    #content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .contentbox {
+        max-width: 100%;
+    }
+
+    .image-wrapper {
+        height: 200px;
+    }
+
+    .search-box {
+        display: none; /* optional: cleaner look */
+    }
+
+    .nav-links {
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    #hero {
+        padding: 60px 15px;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+}
